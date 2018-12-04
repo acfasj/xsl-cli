@@ -1,0 +1,24 @@
+#! /usr/bin/env node
+
+const program = require('commander')
+const Project = require('../src/project')
+
+program
+  .option('-n, --name [name]', '项目名称')
+  .option('-tpl, --template [template]', '项目模板')
+  .parse(process.argv)
+
+const { name, template, args } = program
+let projectName
+if (args[0]) {
+  projectName = args[0]
+} else if (typeof name === 'string') {
+  // program.name() 默认返回 xsl-init
+  projectName = name
+}
+
+// eslint-disable-next-line
+new Project({
+  projectName,
+  template,
+})

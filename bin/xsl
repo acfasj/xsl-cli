@@ -1,0 +1,12 @@
+#! /usr/bin/env node
+
+const program = require('commander')
+const { getPkgVersion, printPkgVersion } = require('../src/helper')
+
+printPkgVersion()
+
+program
+  .version(getPkgVersion())
+  .usage('<command> [options]')
+  .command('init [projectName]', '选择模板来初始化项目')
+  .parse(process.argv)
