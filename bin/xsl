@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
 const program = require('commander')
 const { getPkgVersion, printPkgVersion } = require('../src/helper')
@@ -9,4 +9,5 @@ program
   .version(getPkgVersion())
   .usage('<command> [options]')
   .command('init [projectName]', '选择模板来初始化项目')
+  .command('pad [src]', '下载代码里的静态资源')
   .parse(process.argv)
